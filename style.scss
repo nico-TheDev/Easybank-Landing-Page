@@ -1,0 +1,450 @@
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 113%;
+
+}
+
+body{
+    font-family: 'Public Sans', sans-serif,-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+li{
+    list-style: none;
+}
+
+// COLORS
+
+$DarkBlue: hsl(233, 26%, 24%);
+$LimeGreen: hsl(136, 65%, 51%);
+$BrightCyan: hsl(192, 70%, 51%);
+$gradient:linear-gradient(to right,$LimeGreen,$BrightCyan);
+$GrayishBlue: hsl(233, 8%, 62%);
+$LightGrayishBlue: hsl(220, 16%, 96%);
+$VeryLightGray: hsl(0, 0%, 98%);
+$White: hsl(0, 0%, 100%);
+
+// UTILITIES
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.btn
+{
+    background-image:$gradient;
+    padding: 0.75rem 1.5rem;
+    border-radius: 3rem;
+    color: white;
+
+    &:link,
+    &:visited{
+        background-image:$gradient;
+        padding: 0.75rem 1.5rem;
+        border-radius: 3rem;
+        color: white;
+    }
+
+    &:hover{
+        filter: brightness(1.1);
+    }
+
+    &--small{
+        display: inline-block;
+        font-size: 0.9rem;
+    }
+}
+
+.u-marbot{margin-bottom: 1rem;}
+.u-marbot-2{margin-bottom: 2rem;}
+
+.text-primary{
+    font-size: 2rem;
+    font-weight: 300;
+
+    @media only screen and (max-width:37.5em){
+        text-align: center;
+    }
+}
+
+// NAVBAR
+.navbar{
+    position: relative;
+    z-index: 10;
+    background-color: white;
+
+    @media only screen and (max-width:37.5em){
+        padding: 1.2rem  0;
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo{
+        width: auto;
+       cursor: pointer;
+    }
+
+    &__list{
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+
+        @media only screen and (max-width:37.5em){
+            display: none;
+        }
+        
+    }
+
+    &__item{
+        padding: 1.2rem 0;
+        margin: 0 0.5rem;
+        border-bottom: 5px solid transparent;
+
+        &:hover{
+            border-image: $gradient;
+            border-image-slice: 1;
+        }
+    }
+
+    &__btn{
+        @media only screen and (max-width:37.5em){
+            display: none;
+        }
+    }
+}
+
+// HEADER
+
+.header{
+    height: 100vh;
+    background-color: $VeryLightGray;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+
+
+    &::after{
+        content: "";
+        display: block;
+        background-image: url(/images/bg-intro-desktop.svg);
+        background-size: 120% 150%;
+        background-position:0% 50%;
+        width: 60%;
+        height: 100%;
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        right: -5%;
+
+        @media only screen and (max-width:37.5em){
+            background-image: url(/images/bg-intro-mobile.svg);
+            background-size: cover;
+            background-position:center;
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width:37.5em){
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+
+    &__left{
+        flex: 1;
+        & > *{
+            position: relative;
+            z-index: 2;
+        }
+
+        @media only screen and (max-width:37.5em){
+            order: 2;
+            text-align: center;
+        }
+    }
+
+    &__title{
+        font-size: 3rem;
+        font-weight: 300;
+        margin-bottom: 0.75rem;
+
+        @media only screen and (max-width:37.5em){
+           text-align: center;
+           font-size: 2rem;
+        }
+    }
+
+    &__desc{
+        line-height: 1.5;
+        width: 85%;
+        color: $GrayishBlue;
+        margin-bottom: 1.5rem;
+
+        @media only screen and (max-width:37.5em){
+            width: 100%;
+            text-align: justify;
+            font-size: 0.85rem;
+        }
+   
+
+    }
+
+    &__right{
+        width: 100%;
+        height: 10rem;
+        flex: 1;
+        position: relative;
+        z-index: 2;
+
+        @media only screen and (max-width:37.5em){
+            width: 100%;
+            height:80rem;
+        }
+    }
+
+    &__photo{
+        position: absolute;
+        top: -170%;
+        left: 8%;
+        
+        @media only screen and (max-width:37.5em){
+            width: 100%;
+            height: 110%;
+            position: relative;
+            top: -20%;
+            left: 0;
+        }
+    }
+
+    .btn{
+        @media only screen and (max-width:37.5em){
+            margin-bottom: 3rem;
+        }
+    }
+}
+
+// FEATURES
+
+.why{
+    padding: 7rem 0;
+
+    &__desc{
+        width: 60%;
+        line-height: 1.5;
+        color: $GrayishBlue;
+
+        @media only screen and (max-width:37.5em){
+            text-align: center;
+            width: 100%;
+            font-size: 0.8rem;
+        }
+    }
+}
+
+.features,
+.articles
+{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(10rem,1fr));
+    grid-gap: 1rem;
+
+    @media only screen and (max-width:37.5em){
+        text-align: center;
+    }
+}
+
+.feature{
+
+    & > *:not(:last-child){
+        margin-bottom: 1.5rem;
+    }
+
+    &__title{
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    &__desc{
+        color:$GrayishBlue;
+        line-height: 1.5;
+        font-size: 0.9rem;
+    }
+}
+
+// LATEST ARTICLES
+
+.latest{
+    background-color: $VeryLightGray;
+    padding: 7rem 0;
+}
+
+.article{
+    background-color: $White;
+    box-shadow: 0 1rem 2rem rgba(black,0.1);
+
+    &__img{
+        width: 100%;
+        height:10rem;
+    }
+
+    &__text{
+        padding:1rem;
+    }
+
+    &__author{
+        font-size: 0.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__title{
+        font-size: 1rem;
+        font-weight: 300;
+        margin-bottom: 0.5rem;
+
+        &:hover{
+            color: $LimeGreen;        
+            cursor: pointer;
+
+        }
+    }
+
+    &__desc{
+        color: $GrayishBlue;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+}
+
+// FOOTER
+
+.footer{
+    background-color: $DarkBlue;
+    padding: 4rem 0;
+    color: white;
+
+
+    .container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr) 2fr;
+        height: 5rem;
+
+        @media only screen and (max-width:37.5em){
+            grid-template-columns: 1fr;
+            height: auto;
+            text-align: center;
+
+            grid-row-gap: 1rem;
+        }
+    }
+
+    &__logo{
+        display: inline-block;
+        position: relative;
+        &::after{
+            content: "easybank";
+            font-weight: bold;
+            display: block;
+            width: 70%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 17%;
+            z-index: 2;
+            font-size: 1.1rem;
+            color: white;
+        }
+    }
+
+    &__first,
+    &__list
+    {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @media only screen and (max-width:37.5em){
+            height: 6rem;
+        }
+    }
+
+    &__icon{
+        margin: 0 0.25rem;
+    }
+
+    &__last{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        @media only screen and (max-width:37.5em){
+            align-items: center;
+            margin-top: 1rem;
+        }
+        
+    }
+
+    &__first{
+        @media only screen and (max-width:37.5em){
+            height: 3.5rem !important;
+        }
+    }
+
+    &__copyright{
+        color: $GrayishBlue;
+        font-size: 0.9rem;
+        @media only screen and (max-width:37.5em){
+            margin-top: 1rem;
+        }
+    }
+
+    
+}
+
+
+// MOBILE
+
+.navbar__burger{
+    display: none;
+
+    @media only screen and (max-width:37.5em){
+        display: block;
+    }
+}
+
+.attribution{
+    font-size: 0.5rem;
+    text-align: center;
+    color: white;
+    background-color: $DarkBlue;
+}
